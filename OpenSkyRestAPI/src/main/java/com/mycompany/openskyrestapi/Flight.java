@@ -3,6 +3,7 @@ package com.mycompany.openskyrestapi;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.io.Serializable;
 import javax.persistence.Column;
+import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,13 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.Transient;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-@Entity(name="P201_Flight")
+@Embeddable
 public class Flight implements Serializable {
-    
-    @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
-    @Column (name = "ID")
-    private long id;
     
     @Column (name="ICAO")
     private String icao24;
@@ -53,15 +49,6 @@ public class Flight implements Serializable {
     
     @Transient
     private int arrivalAirportCandidatesCount;
-    
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
     
     public String getIcao24() {
         return icao24;

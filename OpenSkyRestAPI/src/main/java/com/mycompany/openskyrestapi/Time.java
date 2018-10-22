@@ -1,7 +1,7 @@
 package com.mycompany.openskyrestapi;
 
 public class Time {
-    
+
     private int tempo;
     
     public Time() {
