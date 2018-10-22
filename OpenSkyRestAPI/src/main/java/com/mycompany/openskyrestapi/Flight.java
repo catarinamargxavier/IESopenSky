@@ -1,35 +1,68 @@
 package com.mycompany.openskyrestapi;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Transient;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Flight {
+@Entity(name="P201_Flight")
+public class Flight implements Serializable {
     
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    @Column (name = "ID")
+    private long id;
+    
+    @Column (name="ICAO")
     private String icao24;
     
+    @Column (name="FIRST_SEEN")
     private int firstSeen;
     
+    @Column (name="DEPARTURE_AIRPORT")
     private String estDepartureAirport;
     
+    @Column (name="LAST_SEEN")
     private int lastSeen;
     
+    @Column (name="ARRIVAL_AIRPORT")
     private String estArrivalAirport;
     
+    @Column (name="CALL_SIGN")
     private String callSign;
     
+    @Column (name="DEPARTURE_HORIZONTAL")
     private int estDepartureAirportHorizDistance;
     
+    @Column (name="DEPARTURE_VERTICAL")
     private int estDepartureAirportVertDistance;
     
+    @Column (name="ARRIVAL_HORIZONTAL")
     private int estArrivalAirportHorizDistance;
     
+    @Column (name="ARRIVAL_VERTICAL")
     private int estArrivalAirportVertDistance;
     
+    @Transient
     private int departureAirportCandidatesCount;
     
+    @Transient
     private int arrivalAirportCandidatesCount;
     
 
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+    
     public String getIcao24() {
         return icao24;
     }

@@ -28,8 +28,10 @@ public class Application {
     @Bean
     public CommandLineRunner run (RestTemplate restTemplate) throws Exception {
         return args -> {
-            Flight[] quote = restTemplate.getForObject("https://opensky-network.org/api/flights/all?begin=1540036800&end=1540040400", Flight[].class);
-            for (Flight voo: quote) {
+            Time tempo = restTemplate.getForObject("https://opensky-network.org/api/flights/states/all", Time.class);
+            String url = "https://opensky-network.org/api/flights/all?begin="+tempo.getTempo()+"&end="+tempo.getTempo();
+            Flight[] voos = restTemplate.getForObject("https://opensky-network.org/api/flights/all?begin=1540036800&end=1540040400", Flight[].class);
+            for (Flight voo: voos) {
                 log.info(voo.toString());
             }
         };
