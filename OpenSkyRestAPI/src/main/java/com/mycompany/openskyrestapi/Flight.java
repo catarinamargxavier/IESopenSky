@@ -26,7 +26,7 @@ public class Flight implements Serializable {
     private String estArrivalAirport;
     
     @Column (name="CALL_SIGN")
-    private String callSign;
+    private String callsign;
     
     @Column (name="DEPARTURE_HORIZONTAL")
     private int estDepartureAirportHorizDistance;
@@ -86,12 +86,12 @@ public class Flight implements Serializable {
         this.estArrivalAirport = estArrivalAirport;
     }
 
-    public String getCallSign() {
-        return callSign;
+    public String getCallsign() {
+        return callsign;
     }
 
-    public void setCallSign(String callSign) {
-        this.callSign = callSign;
+    public void setCallsign(String callsign) {
+        this.callsign = callsign;
     }
 
     public int getEstDepartureAirportHorizDistance() {
@@ -144,7 +144,7 @@ public class Flight implements Serializable {
 
     @Override
     public String toString() {
-        return "Flight{" + "icao24=" + icao24 + ", firstSeen=" + firstSeen + ", estDepartureAirport=" + estDepartureAirport + ", lastSeen=" + lastSeen + ", estArrivalAirport=" + estArrivalAirport + ", callSign=" + callSign + ", estDepartureAirportHorizDistance=" + estDepartureAirportHorizDistance + ", estDepartureAirportVertDistance=" + estDepartureAirportVertDistance + ", estArrivalAirportHorizDistance=" + estArrivalAirportHorizDistance + ", estArrivalAirportVertDistance=" + estArrivalAirportVertDistance + ", departureAirportCandidatesCount=" + departureAirportCandidatesCount + ", arrivalAirportCandidatesCount=" + arrivalAirportCandidatesCount + '}';
+        return "Flight{" + "icao24=" + icao24 + ", firstSeen=" + firstSeen + ", estDepartureAirport=" + estDepartureAirport + ", lastSeen=" + lastSeen + ", estArrivalAirport=" + estArrivalAirport + ", callSign=" + callsign + ", estDepartureAirportHorizDistance=" + estDepartureAirportHorizDistance + ", estDepartureAirportVertDistance=" + estDepartureAirportVertDistance + ", estArrivalAirportHorizDistance=" + estArrivalAirportHorizDistance + ", estArrivalAirportVertDistance=" + estArrivalAirportVertDistance + ", departureAirportCandidatesCount=" + departureAirportCandidatesCount + ", arrivalAirportCandidatesCount=" + arrivalAirportCandidatesCount + '}';
     }
     
     public Flight () {

@@ -2,6 +2,6 @@ package com.mycompany.openskyrestapi;
 
 public interface FlightService {
     
-    FlightsByTime creatFlight (FlightsByTime flight);
+    FlightByTime createFlight (FlightByTime flight);
     
 }

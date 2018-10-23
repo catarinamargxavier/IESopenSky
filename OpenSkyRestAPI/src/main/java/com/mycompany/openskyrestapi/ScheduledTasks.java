@@ -18,7 +18,7 @@ public class ScheduledTasks {
     @Autowired
     private FlightService service;
 
-    @Scheduled(fixedRate = 2500)
+    @Scheduled(fixedRate = 5000)
     public void reportCurrentTime() throws Exception {
         run(new RestTemplate());
     }
@@ -37,7 +37,8 @@ public class ScheduledTasks {
         String url = "https://opensky-network.org/api/flights/all?begin="+tempo+"&end="+tempo;
         Flight[] voos = restTemplate.getForObject(url, Flight[].class);
         for (Flight voo: voos) {
-            FlightsByTime novo = service.creatFlight(new FlightsByTime(tempo,voo));
+            //log.info(voo.toString());
+            FlightByTime novo = service.createFlight(new FlightByTime(tempo,voo));
         }
     }
   

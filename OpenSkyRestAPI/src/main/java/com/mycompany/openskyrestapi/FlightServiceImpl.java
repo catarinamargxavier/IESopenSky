@@ -11,7 +11,7 @@ public class FlightServiceImpl implements FlightService {
     private RepositoryFlightsByTime repository;
     
     @Override
-    public FlightsByTime creatFlight(FlightsByTime flight) {
+    public FlightByTime createFlight(FlightByTime flight) {
         return repository.save(flight);
     }
     

@@ -11,7 +11,7 @@ import javax.persistence.Id;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity(name="P201_Time")
-public class FlightsByTime implements Serializable {
+public class FlightByTime implements Serializable {
     
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
@@ -23,9 +23,12 @@ public class FlightsByTime implements Serializable {
     @Embedded
     private Flight voo;
     
-    public FlightsByTime(int time, Flight voo) {
+    public FlightByTime(int time, Flight voo) {
         this.time = time;
         this.voo = voo;
+    }
+    
+    public FlightByTime() {
     }
 
     public Long getId() {
