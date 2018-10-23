@@ -1,7 +1,6 @@
 package com.mycompany.openskyrestapi;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -11,7 +10,7 @@ import javax.persistence.Id;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Entity(name="P201_Time")
-public class FlightsByTime implements Serializable {
+public class FlightsByTime {
     
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
@@ -22,34 +21,5 @@ public class FlightsByTime implements Serializable {
     
     @Embedded
     private Flight voo;
-    
-    public FlightsByTime() {
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public int getTime() {
-        return time;
-    }
-
-    public void setTime(int time) {
-        this.time = time;
-    }
-
-    public Flight getVoo() {
-        return voo;
-    }
-
-    public void setVoo(Flight voo) {
-        this.voo = voo;
-    }
-    
-    
     
 }
