@@ -23,7 +23,9 @@ public class FlightsByTime implements Serializable {
     @Embedded
     private Flight voo;
     
-    public FlightsByTime() {
+    public FlightsByTime(int time, Flight voo) {
+        this.time = time;
+        this.voo = voo;
     }
 
     public Long getId() {
