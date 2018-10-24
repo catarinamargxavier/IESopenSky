@@ -1,6 +1,5 @@
 package com.mycompany.openskyrestapi;
 
-import com.mycompany.openskyrestapi.repository.RepositoryFlightsByTime;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,5 +17,19 @@ public class FlightResourceImpl implements FlightResource {
     public List<FlightByTime> retrieveAllFlights() {
         return repository.findAll();
     }
+
+    @Override
+    @GetMapping("/flights/{airline}")
+    public List<FlightByTime> retrieveByAirline(@PathVariable String airline) {
+        return repository.findByAirline(airline);
+    }
+
+    @Override
+    @GetMapping("/flights/{airline}/{beginData}/{endData}")
+    public List<FlightByTime> retrieveByAirlineAndDate(@PathVariable String airline, @PathVariable int beginData, @PathVariable int endData) {
+        return repository.findbyAirlineDate(airline, beginData, endData);
+    }
+    
+    
     
 }
