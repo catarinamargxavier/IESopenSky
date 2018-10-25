@@ -18,7 +18,7 @@ public class ScheduledTasks {
     @Autowired
     private FlightService service;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 10000)
     public void reportCurrentTime() throws Exception {
         run(new RestTemplate());
     }

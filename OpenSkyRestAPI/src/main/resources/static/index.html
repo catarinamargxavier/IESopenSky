@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Flight Data</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <br>Airline:<br>
+    <input type="text" name="airline">
+    </br>
+    <br>Begin date:<br>
+    <input type="date" name="beginDate">
+    </br>
+    <br>End date:<br>
+    <input type="date" name="endDate">
+    </br>
+    <button id="searchAirline">Search airline!</button>
+    <button id="searchByDate">Search airline with date parameters!</button>
+    <script type="text/javascript">
+        document.getElementById("searchAirline").onclick = function () {
+            var airline = document.getElementsByName("airline");
+            location.href = "flights/" + airline[0].value;
+        };
+        document.getElementById("searchByDate").onclick = function () {
+            var airline = document.getElementsByName("airline");
+            var begin = document.getElementsByName("beginDate");
+            begin = Date.parse(begin[0].value);
+            var end = document.getElementsByName("endDate");
+            end = Date.parse(end[0].value);
+            location.href = "flights/" +airline[0].value + "/" + begin + "/" + end;
+        };
+    </script>
+</body>
+
+
+</html>
